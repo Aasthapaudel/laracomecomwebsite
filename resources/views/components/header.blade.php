@@ -1,4 +1,5 @@
 <div>
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -36,7 +37,7 @@
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__option">
             <div class="offcanvas__links">
-                <a href="#">Sign in</a>
+                <!-- <a href="#">Sign in</a> -->
                 <a href="#">FAQs</a>
             </div>
             <div class="offcanvas__top__hover">
@@ -74,10 +75,17 @@
                     <div class="col-lg-6 col-md-5">
                         <div class="header__top__right">
                             <div class="header__top__links">
-                                <a href="{{ route('login') }}">Sign in</a>
-                                <a href="{{ route('register') }}">Register</a>
+                            <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+
+                    <x-responsive-nav-link :href="route('logout')"
+                            onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                        {{ __('Log Out') }}
+                    </x-responsive-nav-link>
+                </form>
+                                <!-- <a href="{{ route('register') }}">Register</a> -->
                                 <a href="#">FAQs</a>
-                            </div>
                             <div class="header__top__hover">
                                 <span>Usd <i class="arrow_carrot-down"></i></span>
                                 <ul>
@@ -87,6 +95,8 @@
                                 </ul>
                             </div>
                         </div>
+                     </div>
+
                     </div>
                 </div>
             </div>
@@ -129,4 +139,7 @@
             <div class="canvas__open"><i class="fa fa-bars"></i></div>
         </div>
     </header>
+</div>
+<!-- Header Section End -->
+
 </div>
