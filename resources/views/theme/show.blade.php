@@ -21,7 +21,6 @@
                         </div>
                         <div class="product__item__text">
                             <h6>{{$products->title}}</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
                             <div class="rating">
                                 <i class="fa fa-star-o"></i>
                                 <i class="fa fa-star-o"></i>
@@ -29,7 +28,7 @@
                                 <i class="fa fa-star-o"></i>
                                 <i class="fa fa-star-o"></i>
                             </div>
-                            <h5>{{$products->price}}</h5>
+                            <h5>${{$products->price}}</h5>
                             <div class="product__color__select">
                                 <label for="pc-1">
                                     <input type="radio" id="pc-1">
@@ -42,6 +41,21 @@
                                 </label>
                             </div>
                         </div>
+                        <form action="{{route('products.store',$products->id)}}" method="post">
+                        @csrf
+<div class="card" width="30">
+<div class="quantity">
+<input type="number"  min="1" max="{{$products->quantity}}" class="form-control" name="quantity" id="">
+
+</div>
+<input type="hidden"  name="Pid" value="{{$products->id}}">
+<button type="submit" name="" id=""  class="btn btn-success btn-lg btn-block">+ Add to cart</button>
+
+</div>
+</form>
+
+
+
                     </div>
                 </div>
 

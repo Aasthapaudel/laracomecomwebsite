@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\AddTocart;
+use App\Models\User;
 class ProductController extends Controller
 {
     /**
@@ -37,7 +39,20 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'quantity' => 'required|integer|min:1',
+        ]);
+        // $users=User::all();
+        // $products=Product::all();
+        $carts = new AddTocart();
+        $carts->quantity=$request->quantity;
+        $carts->product_id=$request->Pid;
+        $carts->user_id = auth()->id();  // Using Laravel's authentication to get the user ID
+
+        $carts->save();
+        return redirect('/home');
+
+
     }
 
     /**
@@ -48,9 +63,10 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $users =User::find($id);
+
         $products =Product::findOrFail($id);
-        return view('theme.show',compact('products'));
+        return view('theme.show',compact('products','users'));
     }
 
     /**

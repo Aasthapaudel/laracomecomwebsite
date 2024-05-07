@@ -254,14 +254,18 @@
                         <div class="product__item__pic set-bg" data-setbg="{{$item->picture}}">
                             <span class="label">New</span>
                             <ul class="product__hover">
-                                <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
-                                <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a></li>
+                                <li><a href="{{route('login')}}"><img src="img/icon/heart.png" alt=""></a></li>
+                                <li><a href="{{route('login')}}"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a></li>
                                 <li><a href="{{route('products.show',$item->id)}}"><img src="img/icon/search.png" alt=""></a></li>
                             </ul>
                         </div>
                         <div class="product__item__text">
                             <h6>{{$item->title}}</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
+                            @if(auth()->check()) <!-- Check if the user is logged in -->
+    <a href="{{ route('products.show',$item->id) }}" class="add-cart">+ Add To Cart</a> <!-- Replace 'addToCart' with the appropriate route name for adding to cart -->
+@else
+    <a href="{{ route('login') }}" class="add-cart">+ Add To Cart</a>
+@endif
                             <div class="rating">
                                 <i class="fa fa-star-o"></i>
                                 <i class="fa fa-star-o"></i>
