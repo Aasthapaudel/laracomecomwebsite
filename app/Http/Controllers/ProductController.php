@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Product;
+use App\Models\Category;
 class ProductController extends Controller
 {
     /**
@@ -13,7 +14,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products =Product::all();
+
+        return view('theme.index', compact('products'));
+
     }
 
     /**
@@ -23,7 +27,6 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -46,6 +49,8 @@ class ProductController extends Controller
     public function show($id)
     {
         //
+        $products =Product::findOrFail($id);
+        return view('theme.show',compact('products'));
     }
 
     /**

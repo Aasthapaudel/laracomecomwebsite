@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -30,6 +31,7 @@ Route::get('Shopping',[HomeController::class,'Shopping'])->middleware(['auth']);
 Route::get('Shop',[HomeController::class,'Shop'])->middleware(['auth']);
 
 
+Route::resource('products', ProductController::class)->middleware(['auth']);
 
 
 
