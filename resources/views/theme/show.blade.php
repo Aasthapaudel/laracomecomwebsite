@@ -45,7 +45,7 @@
                         @csrf
 <div class="card" width="30">
 <div class="quantity">
-<input type="number"  min="1" max="{{$products->quantity}}" class="form-control" name="quantity" id="" value="1">
+<input type="number"  min="1" max="20" class="form-control" name="quantity" id="" value="1">
 
 </div>
 <input type="hidden"  name="Pid" value="{{$products->id}}">
