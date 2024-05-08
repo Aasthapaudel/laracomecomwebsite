@@ -47,12 +47,17 @@
                                         </div>
                                     </td>
                                     <td class="quantity__item">
-                                        <div class="quantity">
+                                    <div class="quantity">
+                                        <form action="{{ route('carts.update', $item->id) }}" method="post">
+                                            @csrf
+                                            @method('PUT')
                                             <div class="pro-qty-2">
-                                                <input type="text" value="{{$item->quantity}}">
+                                                <input type="number" name="quantity" value="{{ $item->quantity }}" min="1">
                                             </div>
-                                        </div>
-                                    </td>
+                                            <button type="submit" class="btn btn-success">Update</button>
+                                        </form>
+                                    </div>
+                                </td>
                                     <td class="cart__price">$ {{$item->quantity*$item->price}}</td>
                                     <form action="{{route('carts.destroy',$item->id)}}" method="post">
                                     @csrf
@@ -73,7 +78,7 @@
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="continue__btn update__btn">
-                                <a href="#"><i class="fa fa-spinner"></i> Update cart</a>
+                                <a href=""><i class="fa fa-spinner"></i> Update cart</a>
                             </div>
                         </div>
                     </div>

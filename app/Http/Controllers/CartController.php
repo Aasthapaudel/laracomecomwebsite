@@ -70,9 +70,16 @@ class CartController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
+        $request->validate([
+            'quantity' => 'required|integer|min:1',
+        ]);
 
+        $cart = AddTocart::findOrFail($id);
+        $cart->quantity = $request->quantity;
+        $cart->save();
+
+        return redirect('Shopping')->with('success', 'Cart updated successfully.');
+    }
     /**
      * Remove the specified resource from storage.
      *
