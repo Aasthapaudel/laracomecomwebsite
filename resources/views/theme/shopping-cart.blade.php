@@ -54,7 +54,12 @@
                                         </div>
                                     </td>
                                     <td class="cart__price">$ {{$item->quantity*$item->price}}</td>
-                                    <td class="cart__close"><i class="fa fa-close"></i></td>
+                                    <form action="{{route('carts.destroy',$item->id)}}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+ <td class="cart__close"><button type="submit"><i class="fa fa-close"></i> </button></td>
+
+                                </form>
                                 </tr>
 @endforeach
                             </tbody>

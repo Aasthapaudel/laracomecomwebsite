@@ -33,7 +33,7 @@ class HomeController extends Controller
     public function shopping() {
         $itemcarts = DB::table('add_tocarts')
             ->join('products', 'add_tocarts.product_id', '=', 'products.id')
-            ->select('products.*','add_tocarts.quantity')
+            ->select('products.*','add_tocarts.quantity','add_tocarts.id')
             ->get();
 
         return view('theme.shopping-cart', compact('itemcarts'));
