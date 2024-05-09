@@ -4,6 +4,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\ShoppingController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Product;
 
@@ -36,6 +37,7 @@ Route::get('Shop',[HomeController::class,'Shop'])->middleware(['auth']);
 
 Route::resource('products', ProductController::class)->middleware(['auth']);
 Route::resource('carts', CartController::class)->middleware(['auth']);
+Route::resource('shops', ShoppingController::class)->middleware(['auth']);
 
 
 

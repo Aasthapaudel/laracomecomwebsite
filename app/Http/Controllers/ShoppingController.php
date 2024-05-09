@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\AddTocart;
 use App\Models\Order;
 use App\Models\OrderItem;
-class CartController extends Controller
+
+class ShoppingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +17,6 @@ class CartController extends Controller
     public function index()
     {
         //
-        return view('home');
     }
 
     /**
@@ -39,7 +38,6 @@ class CartController extends Controller
     public function store(Request $request)
     {
         //
-        //
         $order = new Order();
         $order->user_id = auth()->user()->id; // Assuming you have user authentication
         $order->bill =$request->total ; // Assuming you have user authentication
@@ -51,14 +49,14 @@ class CartController extends Controller
 
         // Get cart items
         $cartItems = AddToCart::where('user_id', auth()->user()->id)->get();
-$product =Product::all();
+
         // Move cart items to order items
         foreach ($cartItems as $cartItem) {
             $orderItem = new OrderItem();
             $orderItem->order_id = $order->id;
             $orderItem->product_id = $cartItem->product_id;
             $orderItem->quantity = $cartItem->quantity;
-            $orderItem->price =$request->price; // Assuming you have a relationship with the product
+            $orderItem->price = $cartItem->product->price; // Assuming you have a relationship with the product
             $orderItem->save();
         }
 
@@ -66,6 +64,7 @@ $product =Product::all();
         AddToCart::where('user_id', auth()->user()->id)->delete();
 
         return redirect('/home')->with('success', 'Order placed successfully.');
+
 
     }
 
@@ -100,16 +99,9 @@ $product =Product::all();
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'quantity' => 'required|integer|min:1',
-        ]);
-
-        $cart = AddTocart::findOrFail($id);
-        $cart->quantity = $request->quantity;
-        $cart->save();
-
-        return redirect('Shopping')->with('success', 'Cart updated successfully.');
+        //
     }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -118,10 +110,6 @@ $product =Product::all();
      */
     public function destroy($id)
     {
-        $carts=AddTocart::findOrFail($id);
-        $carts->delete();
-        return redirect('home');
-    }
         //
     }
-
+}

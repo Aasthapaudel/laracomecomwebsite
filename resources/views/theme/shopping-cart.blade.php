@@ -36,7 +36,8 @@
                             </thead>
                             <tbody>
                                 @php
-                                $total=0;
+$total = 0;
+$prices=1;
                                 @endphp
                                 @foreach($itemcarts as $item)
                                 <tr>
@@ -61,8 +62,8 @@
                                         </form>
                                     </div>
                                 </td>
-                                    <td class="cart__price">$ {{$item->quantity*$item->price}}</td>
-                                    <form action="{{route('carts.destroy',$item->id)}}" method="post">
+                                    <td class="cart__price">$ {{$item->quantity * $item->price}}</td>
+                                    <form action="{{route('carts.destroy', $item->id)}}" method="post">
                                     @csrf
                                     @method('DELETE')
  <td class="cart__close"><button type="submit"><i class="fa fa-close"></i> </button></td>
@@ -70,7 +71,8 @@
                                 </form>
                                 </tr>
                                 @php
-$total+=($item->quantity*$item->price);
+    $total += ($item->quantity * $item->price);
+    $prices =$item->price;
                                 @endphp
 @endforeach
                             </tbody>
@@ -83,9 +85,8 @@ $total+=($item->quantity*$item->price);
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6">
-                            <div class="continue__btn update__btn">
-                                <a href=""><i class="fa fa-spinner"></i> Update cart</a>
-                            </div>
+
+
                         </div>
                     </div>
                 </div>
@@ -103,7 +104,19 @@ $total+=($item->quantity*$item->price);
                             <li>Subtotal <span>{{$total}}</span></li>
                             <li>Total <span>{{$total}}</span></li>
                         </ul>
-                        <a href="#" class="primary-btn">Proceed to checkout</a>
+                        <form action="{{route('carts.store')}}" method="post">
+                        @csrf
+           <div class="mb-2">
+  <input type="text" class="form-control"  name="name"id="exampleFormControlInput1" placeholder="Enter your name">
+  <input type="phone" class="form-control" name="phone" id="exampleFormControlInput1" placeholder="Enter your phone number">
+  <input type="hidden" class="form-control" name="total" id="exampleFormControlInput1" value="{{$total}}">
+  <input type="hidden" class="form-control" name="price" id="exampleFormControlInput1" value="{{$prices}}">
+  <input type="text" class="form-control"name="address" id="exampleFormControlInput1" placeholder="Enter your address">
+
+ <button type="submit" class="primary-btn mt-2 btn-block">Proceed to checkout</button>
+
+           </div>
+                            </form>
                     </div>
                 </div>
             </div>
