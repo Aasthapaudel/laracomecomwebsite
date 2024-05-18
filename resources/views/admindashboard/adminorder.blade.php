@@ -1,61 +1,34 @@
 @extends('adminlayout.index')
 @section('content')
 <div class="card-body">
-    <p class="card-title mb-0">Top Products</p>
+    <p class="card-title mb-0">Order details</p>
     <div class="table-responsive">
       <table class="table table-striped table-borderless">
         <thead>
           <tr>
-            <th>Product</th>
-            <th>Price</th>
-            <th>Date</th>
+            <th>ID</th>
+            <th>User_id</th>
+            <th>Bill</th>
             <th>Status</th>
+            <th>User_name</th>
+            <th>User_address</th>
+            <th>phone_no</th>
           </tr>
         </thead>
         <tbody>
+            @foreach($order as $order)
           <tr>
-            <td>Search Engine Marketing</td>
-            <td class="font-weight-bold">$362</td>
-            <td>21 Sep 2018</td>
-            <td class="font-weight-medium"><div class="badge badge-success">Completed</div></td>
+            <td>{{$order->id}}</td>
+            <td class="font-weight-bold">{{$order->user_id}}</td>
+            <td>{{$order->bill}}</td>
+            <td class="font-weight-medium"><div class="badge badge-success">{{$order->status}}</div></td>
+
+            <td>{{$order->user_name}}</td>
+            <td class="font-weight-bold">{{$order->user_address}}</td>
+            <td>{{$order->phone_no}}</td>
           </tr>
-          <tr>
-            <td>Search Engine Optimization</td>
-            <td class="font-weight-bold">$116</td>
-            <td>13 Jun 2018</td>
-            <td class="font-weight-medium"><div class="badge badge-success">Completed</div></td>
-          </tr>
-          <tr>
-            <td>Display Advertising</td>
-            <td class="font-weight-bold">$551</td>
-            <td>28 Sep 2018</td>
-            <td class="font-weight-medium"><div class="badge badge-warning">Pending</div></td>
-          </tr>
-          <tr>
-            <td>Pay Per Click Advertising</td>
-            <td class="font-weight-bold">$523</td>
-            <td>30 Jun 2018</td>
-            <td class="font-weight-medium"><div class="badge badge-warning">Pending</div></td>
-          </tr>
-          <tr>
-            <td>E-Mail Marketing</td>
-            <td class="font-weight-bold">$781</td>
-            <td>01 Nov 2018</td>
-            <td class="font-weight-medium"><div class="badge badge-danger">Cancelled</div></td>
-          </tr>
-          <tr>
-            <td>Referral Marketing</td>
-            <td class="font-weight-bold">$283</td>
-            <td>20 Mar 2018</td>
-            <td class="font-weight-medium"><div class="badge badge-warning">Pending</div></td>
-          </tr>
-          <tr>
-            <td>Social media marketing</td>
-            <td class="font-weight-bold">$897</td>
-            <td>26 Oct 2018</td>
-            <td class="font-weight-medium"><div class="badge badge-success">Completed</div></td>
-          </tr>
-        </tbody>
+          @endforeach
+                   </tbody>
       </table>
     </div>
   </div>
