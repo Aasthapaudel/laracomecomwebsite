@@ -55,6 +55,10 @@ Route::middleware('auth')->group(function () {
 
 //admin site
 Route::get('/admin',[adminController::class,'index']);
+Route::get('/adminproduct',[adminController::class,'product']);
+Route::get('/adminorders',[adminController::class,'Order']);
+Route::get('/admincarts',[adminController::class,'Cart']);
+Route::get('/adminuserdetail',[adminController::class,'Userdetails']);
 
 
 
