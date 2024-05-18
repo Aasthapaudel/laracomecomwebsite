@@ -51,14 +51,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
 
-//admin site
+    //admin site
 Route::get('/admin',[adminController::class,'index']);
 Route::get('/adminproduct',[adminController::class,'product']);
 Route::get('/adminorders',[adminController::class,'Order']);
 Route::get('/admincarts',[adminController::class,'Cart']);
 Route::get('/adminuserdetail',[adminController::class,'Userdetails']);
+});
+
+
 
 
 

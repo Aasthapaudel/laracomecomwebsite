@@ -76,14 +76,20 @@
               <img src="{{asset('admin dash/images/faces/face28.jpg')}}" alt="profile"/>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item">
-                <i class="ti-settings text-primary"></i>
-                Settings
-              </a>
-              <a class="dropdown-item">
-                <i class="ti-power-off text-primary"></i>
-                Logout
-              </a>
+                <x-dropdown-link :href="route('profile.edit')">
+
+                    {{ __('Profile') }}
+                </x-dropdown-link>
+
+              <form method="POST" action="{{ route('logout') }}">
+                @csrf
+
+                <x-dropdown-link :href="route('logout')"
+                        onclick="event.preventDefault();
+                                    this.closest('form').submit();">
+                    {{ __('Log Out') }}
+                </x-dropdown-link>
+            </form>
             </div>
           </li>
           <li class="nav-item nav-settings d-none d-lg-flex">
