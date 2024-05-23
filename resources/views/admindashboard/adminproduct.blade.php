@@ -3,8 +3,10 @@
 <div class="card-body">
     <p class="card-title mb-0">Top Products</p>
     <div class="table-responsive">
-        <button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block">Add</button>
-
+<form action="{{route('adminproducts.create')}}" method="get">
+    @csrf
+      <button type="submit" name="" id="" class="btn btn-primary" btn-lg btn-block">Add</button>
+</form>
       <table class="table table-striped table-borderless">
         <thead>
           <tr>

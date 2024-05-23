@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\AdminCartController;
+use App\Http\Controllers\AdminOrderController;
+use App\Http\Controllers\AdminProductController;
+use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
@@ -39,6 +43,10 @@ Route::get('Shop',[HomeController::class,'Shop'])->middleware(['auth']);
 Route::resource('products', ProductController::class)->middleware(['auth']);
 Route::resource('carts', CartController::class)->middleware(['auth']);
 Route::resource('shops', ShoppingController::class)->middleware(['auth']);
+Route::resource('adminproducts', AdminProductController::class)->middleware(['auth']);
+Route::resource('admincart', AdminCartController::class)->middleware(['auth']);
+Route::resource('adminorders', AdminOrderController::class)->middleware(['auth']);
+Route::resource('adminusers', AdminUserController::class)->middleware(['auth']);
 
 
 
