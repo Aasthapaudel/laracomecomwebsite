@@ -43,10 +43,10 @@ Route::get('Shop',[HomeController::class,'Shop'])->middleware(['auth']);
 Route::resource('products', ProductController::class)->middleware(['auth']);
 Route::resource('carts', CartController::class)->middleware(['auth']);
 Route::resource('shops', ShoppingController::class)->middleware(['auth']);
-Route::resource('adminproducts', AdminProductController::class)->middleware(['auth']);
 Route::resource('admincart', AdminCartController::class)->middleware(['auth']);
 Route::resource('adminorders', AdminOrderController::class)->middleware(['auth']);
 Route::resource('adminusers', AdminUserController::class)->middleware(['auth']);
+Route::resource('adminproducts', AdminProductController::class)->middleware(['auth']);
 
 
 
@@ -65,10 +65,17 @@ Route::get('/admin',[adminController::class,'index']);
 Route::get('/adminproduct',[adminController::class,'product']);
 Route::get('/adminorders',[adminController::class,'Order']);
 Route::get('/admincarts',[adminController::class,'Cart']);
+
 Route::get('/adminuserdetail',[adminController::class,'Userdetails']);
+
 });
-
-
+// Route::group(['middleware' => ['web']], function () {
+//     Route::resource('adminproducts', AdminProductController::class);
+// });
+Route::get('/productcreate',function()
+{
+    return view('admindashboard.productcreate');
+});
 
 
 

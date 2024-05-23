@@ -3,9 +3,8 @@
 <div class="card-body">
     <p class="card-title mb-0">Top Products</p>
     <div class="table-responsive">
-<form action="{{route('adminproducts.create')}}" method="get">
-    @csrf
-      <button type="submit" name="" id="" class="btn btn-primary" btn-lg btn-block">Add</button>
+<form action="{{ url('productcreate') }}" method="get">
+    <button type="submit" class="btn btn-primary  btn-block">Add</button>
 </form>
       <table class="table table-striped table-borderless">
         <thead>
@@ -32,8 +31,12 @@
             <td class="font-weight-bold">{{$product->type}}</td>
             <td>{{$product->isadmin}}</td>
             <td class="font-weight-bold">
-                <button type="button" name="" id="" class="btn btn-success" btn-lg btn-block">Edit</button>
-                <button type="button" name="" id="" class="btn btn-danger" btn-lg btn-block">Delete</button>
+                <a href="{{ route('adminproducts.edit', $product->id) }}" class="btn btn-success" btn-lg btn-block">Edit</a>
+                        <form action="{{ route('adminproducts.destroy', $product->id) }}" method="POST" style="display:inline-block;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger" btn-lg btn-block onclick="return confirm('Are you sure you want to delete this product?');">Delete</button>
+                        {{-- </form>               <button type="button" name="" id="" class="btn btn-danger" btn-lg btn-block">Delete</button> --}}
             </td>
 
           </tr>
