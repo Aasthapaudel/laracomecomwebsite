@@ -31,8 +31,8 @@
             <td class="font-weight-bold">{{$product->type}}</td>
             <td>{{$product->isadmin}}</td>
             <td class="font-weight-bold">
-                <a href="{{ route('adminproducts.edit', $product->id) }}" class="btn btn-success" btn-lg btn-block">Edit</a>
-                        <form action="{{ route('adminproducts.destroy', $product->id) }}" method="POST" style="display:inline-block;">
+                <a href="{{ route('productcrud.edit', $product->id) }}" class="btn btn-success" btn-lg btn-block">Edit</a>
+                        <form action="{{ route('productcrud.destroy', $product->id) }}" method="POST" style="display:inline-block;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger" btn-lg btn-block onclick="return confirm('Are you sure you want to delete this product?');">Delete</button>

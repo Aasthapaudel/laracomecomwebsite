@@ -3,7 +3,7 @@
 @section('content')
 <div class="card-body">
     <p class="card-title mb-0">Edit Product</p>
-    <form action="{{ route('adminproducts.update', $product->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('productcrud.update', $product->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="form-group">

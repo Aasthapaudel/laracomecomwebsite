@@ -10,8 +10,8 @@ class AdminProductController extends Controller
     // Display a listing of the resource.
     public function index()
     {
-        $products = Product::all();
-        return view('admindashboard.adminproduct', compact('products'));
+        $product = Product::all();
+        return view('admindashboard.adminproduct', compact('product'));
     }
 
     // Show the form for creating a new resource.
@@ -43,7 +43,7 @@ class AdminProductController extends Controller
             'isadmin' => $request->isadmin,
         ]);
 
-        return redirect()->route('adminproducts.index')->with('success', 'Product created successfully.');
+        return redirect()->route('productcrud.index')->with('success', 'Product created successfully.');
     }
 
     // Display the specified resource.
@@ -87,7 +87,7 @@ class AdminProductController extends Controller
 
         $product->save();
 
-        return redirect()->route('adminproducts.index')->with('success', 'Product updated successfully.');
+        return redirect()->route('productcrud.index')->with('success', 'Product updated successfully.');
     }
 
     // Remove the specified resource from storage.
@@ -96,6 +96,6 @@ class AdminProductController extends Controller
         $product = Product::findOrFail($id);
         $product->delete();
 
-        return redirect()->route('adminproducts.index')->with('success', 'Product deleted successfully.');
+        return redirect()->route('productcrud.index')->with('success', 'Product deleted successfully.');
     }
 }

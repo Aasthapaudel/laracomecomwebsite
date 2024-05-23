@@ -46,7 +46,7 @@ Route::resource('shops', ShoppingController::class)->middleware(['auth']);
 Route::resource('admincart', AdminCartController::class)->middleware(['auth']);
 Route::resource('adminorders', AdminOrderController::class)->middleware(['auth']);
 Route::resource('adminusers', AdminUserController::class)->middleware(['auth']);
-Route::resource('adminproducts', AdminProductController::class)->middleware(['auth']);
+Route::resource('productcrud', AdminProductController::class)->middleware(['auth']);
 
 
 
