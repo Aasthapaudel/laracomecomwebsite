@@ -24,7 +24,7 @@
             <td>{{$product->id}}</td>
             <td class="font-weight-bold">{{$product->title}}</td>
             <td>{{$product->price}}</td>
-            <td class="font-weight-medium">{{$product->picture}}</></td>
+            <td class="font-weight-medium"><img src="{{URL::asset($product->picture)}}" alt="pic" srcset="" width="80"></td>
 
             <td>{{$product->category_id}}</td>
             <td class="font-weight-bold">{{$product->type}}</td>
