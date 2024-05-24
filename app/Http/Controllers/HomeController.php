@@ -11,7 +11,7 @@ class HomeController extends Controller
     //
     public function index(){
         $products=Product::all();
-        
+
         return view('theme.index', compact('products'));
     }
 
@@ -28,7 +28,9 @@ class HomeController extends Controller
         return view('theme.checkout');
     }
     public function shop_details(){
-        return view('theme.shop-details');
+        $products =Product::all();
+
+        return view('theme.show',compact('products'));
     }
 
     public function shopping() {
@@ -41,6 +43,10 @@ class HomeController extends Controller
     }
 
     public function Shop(){
-        return view('theme.shop');
+           $products =Product::all();
+
+        return view('theme.shop', compact('products'));
+
+
     }
 }

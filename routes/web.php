@@ -34,7 +34,7 @@ Route::get('/',[HomeController::class,'index']);
 Route::get('about',[HomeController::class,'about'])->middleware(['auth']);
 Route::get('contact',[HomeController::class,'contact'])->middleware(['auth']);
 Route::get('checkout',[HomeController::class,'checkout'])->middleware(['auth']);
-Route::get('shop_details',[HomeController::class,'shop_details'])->middleware(['auth']);
+Route::get('shop_details',[ProductController::class,'show'])->middleware(['auth']);
 // Route::get('login',[HomeController::class,'login']);
 Route::get('Shopping',[HomeController::class,'Shopping'])->middleware(['auth']);
 Route::get('Shop',[HomeController::class,'Shop'])->middleware(['auth']);

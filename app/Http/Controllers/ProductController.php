@@ -66,7 +66,7 @@ class ProductController extends Controller
         $users =User::find($id);
 
         $products =Product::findOrFail($id);
-        return view('theme.show',compact('products','users'));
+        return view('theme.shop-details',compact('products','users'));
     }
 
     /**
@@ -100,6 +100,6 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        
+
     }
 }
