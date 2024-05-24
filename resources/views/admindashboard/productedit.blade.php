@@ -1,8 +1,7 @@
-@extends('adminlayout.index')
-
-@section('content')
-<div class="card-body">
+<x-crudheader/>
     <p class="card-title mb-0">Edit Product</p>
+    <a href="{{route('productcrud.index')}}"  class="btn btn-dark">Back</a>
+
     <form action="{{ route('productcrud.update', $product->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
@@ -39,4 +38,4 @@
         <button type="submit" class="btn btn-primary">Update Product</button>
     </form>
 </div>
-@endsection
+<x-crudfooter/>

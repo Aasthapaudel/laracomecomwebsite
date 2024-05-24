@@ -69,13 +69,13 @@ Route::get('/admincarts',[adminController::class,'Cart']);
 Route::get('/adminuserdetail',[adminController::class,'Userdetails']);
 
 });
-// Route::group(['middleware' => ['web']], function () {
-//     Route::resource('adminproducts', AdminProductController::class);
-// });
-Route::get('/productcreate',function()
-{
-    return view('admindashboard.productcreate');
+Route::group(['middleware' => ['web']], function () {
+    Route::resource('productcrud', AdminProductController::class);
 });
+// Route::get('/productcreate',function()
+// {
+//     return view('admindashboard.productcreate');
+// });
 
 
 

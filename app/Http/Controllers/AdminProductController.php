@@ -31,8 +31,8 @@ class AdminProductController extends Controller
             'type' => 'required',
             'isadmin' => 'required|boolean',
         ]);
-
-        $imagePath = $request->file('picture')->store('images', 'public');
+$fileName=time().'.'.$request->picutre->getClientOriginalName();
+        $imagePath = $request->file('picture')->store('images', $fileName);
 
         Product::create([
             'title' => $request->title,
