@@ -115,7 +115,7 @@
                             <li><a href="#">Pages</a>
                                 <ul class="dropdown">
                                     <li><a href="{{url('about')}}">About Us</a></li>
-                                    <li><a href="">Shop Details</a></li>
+                                    {{-- <li><a href="">Shop Details</a></li> --}}
                                     <li><a href="{{url('Shopping')}}">Shopping Cart</a></li>
                                     <li><a href="{{url('checkout')}}">Check Out</a></li>
                                     <!-- <li><a href="{{ url('login') }}">Login</a></li> -->
