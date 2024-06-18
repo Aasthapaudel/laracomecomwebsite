@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Order;
 
 class AdminOrderController extends Controller
 {
@@ -80,5 +81,10 @@ class AdminOrderController extends Controller
     public function destroy($id)
     {
         //
+        $order = Order::findOrFail($id);
+        $order->delete();
+
+        return redirect()->route('productcrud.index')->with('success', 'Product deleted successfully.');
     }
-}
+    }
+

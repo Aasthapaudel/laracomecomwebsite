@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class AdminUserController extends Controller
 {
@@ -80,5 +81,10 @@ class AdminUserController extends Controller
     public function destroy($id)
     {
         //
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        return redirect()->route('productcrud.index')->with('success', 'Product deleted successfully.');
+
     }
 }

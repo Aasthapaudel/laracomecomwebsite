@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\AddTocart;
 
 class AdminCartController extends Controller
 {
@@ -80,5 +81,10 @@ class AdminCartController extends Controller
     public function destroy($id)
     {
         //
+        $cart = AddTocart::findOrFail($id);
+        $cart->delete();
+
+        return redirect()->route('productcrud.index')->with('success', 'Product deleted successfully.');
+
     }
 }

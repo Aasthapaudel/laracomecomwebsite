@@ -122,7 +122,7 @@
                         </form>
                     </div>
                     <div class="product__details__btns__option">
-                        <a href="#"><i class="fa fa-heart"></i> add to wishlist</a>
+                        <a href="#"><i class="fa fa-heart"></i> Add to wishlist</a>
                         <a href="#"><i class="fa fa-exchange"></i> Add To Compare</a>
                     </div>
                     <div class="product__details__last__option">
