@@ -31,4 +31,12 @@ class adminController extends Controller
         $user=User::all();
         return view('admindashboard.adminuserdetail',compact('user'));
     }
+    public function approve($id)
+    {
+        $order = Order::findOrFail($id);
+        $order->status = 'approved';
+        $order->save();
+
+        return redirect()->back()->with('success', 'Order approved successfully.');
+    }
 }

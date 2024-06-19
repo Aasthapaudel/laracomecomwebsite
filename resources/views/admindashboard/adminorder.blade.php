@@ -2,7 +2,6 @@
 @section('content')
 <div class="card-body">
     <p class="card-title mb-0">Order details</p>
-    <button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block">Add</button>
 
     <div class="table-responsive">
       <table class="table table-striped table-borderless">
@@ -30,8 +29,17 @@
             <td class="font-weight-bold">{{$order->user_address}}</td>
             <td>{{$order->phone_no}}</td>
             <td class="font-weight-bold">
-                <button type="button" name="" id="" class="btn btn-success" btn-lg btn-block">Edit</button>
-                <form action="{{ route('adminorders.destroy', $order->id) }}" method="POST" style="display:inline-block;">
+                @if($order->status !== 'approved')
+                <form action="{{ route('orders.approve', $order->id) }}" method="POST" id="approve-form-{{ $order->id }}" style="display: inline;">
+                    @csrf
+                    @method('PUT')
+                    <button type="button" class="btn btn-success" onclick="document.getElementById('approve-form-{{ $order->id }}').submit();">
+                        Approve
+                    </button>
+                </form>
+            @else
+                <button class="btn btn-secondary" disabled>Approved</button>
+            @endif                <form action="{{ route('adminorders.destroy', $order->id) }}" method="POST" style="display:inline-block;">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger" btn-lg btn-block onclick="return confirm('Are you sure you want to delete this product?');">Delete</button>

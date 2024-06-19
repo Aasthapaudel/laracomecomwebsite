@@ -71,6 +71,8 @@ Route::get('/adminuserdetail',[adminController::class,'Userdetails']);
 });
 Route::group(['middleware' => ['web']], function () {
     Route::resource('productcrud', AdminProductController::class);
+    Route::put('/orders/{id}/approve', [adminController::class, 'approve'])->name('orders.approve');
+
 });
 // Route::get('/productcreate',function()
 // {

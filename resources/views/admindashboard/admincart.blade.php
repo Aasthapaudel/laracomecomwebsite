@@ -4,7 +4,6 @@
     <p class="card-title mb-0">Carts detail</p>
     <div class="table-responsive">
       <table class="table table-striped table-borderless">
-        <button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block">Add</button>
 
         <thead>
             <tr>
@@ -24,7 +23,7 @@
                 <td>{{$cart->product_id}}</td>
                 <td class="font-weight-medium">{{$cart->user_id}}</td>
                 <td class="font-weight-bold">
-                    <button type="button" name="" id="" class="btn btn-success" btn-lg btn-block">Edit</button>
+                    <a href="{{ route('admincart.edit', $cart->id) }}" class="btn btn-success" btn-lg btn-block">Edit</a>
                     <form action="{{ route('admincart.destroy', $cart->id) }}" method="POST" style="display:inline-block;">
                         @csrf
                         @method('DELETE')

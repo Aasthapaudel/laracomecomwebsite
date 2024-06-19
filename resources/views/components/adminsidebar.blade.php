@@ -83,11 +83,11 @@
           </ul>
         </div>
       </li>
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a class="nav-link" href="{{url('adminuserdetail')}}">
           <i class="icon-paper menu-icon"></i>
           <span class="menu-title">User Status</span>
         </a>
-      </li>
+      </li> --}}
     </ul>
   </nav>

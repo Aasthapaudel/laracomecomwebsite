@@ -15,6 +15,9 @@ class AdminCartController extends Controller
     public function index()
     {
         //
+        $cart = AddTocart::all();
+        return view('admindashboard.admincart', compact('cart'));
+
     }
 
     /**
@@ -58,6 +61,9 @@ class AdminCartController extends Controller
     public function edit($id)
     {
         //
+        $cart= AddTocart::findOrFail($id);
+        return view('admindashboard.cartedit', compact('cart'));
+
     }
 
     /**
@@ -70,7 +76,25 @@ class AdminCartController extends Controller
     public function update(Request $request, $id)
     {
         //
+
+          $cart = AddTocart::findOrFail($id);
+
+        $request->validate([
+            'quantity' => 'required|integer',
+            'product_id' => 'required|string',
+            'user_id' => 'required|string',
+        ]);
+
+        $cart->update([
+            'quantity' => $request->quantity,
+            'product_id' => $request->product_id,
+            'user_id' => $request->user_id,
+        ]);
+
+        return redirect()->route('admincart.index', $cart->id)->with('success', 'Cart item updated successfully');
     }
+
+
 
     /**
      * Remove the specified resource from storage.
@@ -87,4 +111,5 @@ class AdminCartController extends Controller
         return redirect()->route('productcrud.index')->with('success', 'Product deleted successfully.');
 
     }
+
 }
