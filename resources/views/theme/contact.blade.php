@@ -4,7 +4,7 @@
 
     <!-- Map Begin -->
     <div class="map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d111551.9926412813!2d-90.27317134641879!3d38.606612219170856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited%20States!5e0!3m2!1sen!2sbd!4v1597926938024!5m2!1sen!2sbd" height="500" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14254.815708287996!2d84.12400736547153!3d28.394857423903323!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399592d70bb0a2ff%3A0x34066d9b8d8e6a1b!2sNepal!5e0!3m2!1sen!2sbd!4v1597926938024!5m2!1sen!2sbd"  height="500"  width="50%" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
     </div>
     <!-- Map End -->
 
@@ -22,13 +22,13 @@
                         </div>
                         <ul>
                             <li>
-                                <h4>America</h4>
-                                <p>195 E Parker Square Dr, Parker, CO 801 <br />+43 982-314-0958</p>
+                                <h4>Pokhara, Nepal</h4>
+                                <p>XYZ villa, 33700<br />+977 982-314-0958</p>
+
+<span>                                     <i class="fa fa-envelope"><a href="mailto:menswearBazzar@gmail.com" > menswearBazzar@gmail.com</a></i>
+</span>
                             </li>
-                            <li>
-                                <h4>France</h4>
-                                <p>109 Avenue Léon, 63 Clermont-Ferrand <br />+12 345-423-9893</p>
-                            </li>
+
                         </ul>
                     </div>
                 </div>
